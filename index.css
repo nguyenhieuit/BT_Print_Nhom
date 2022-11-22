@@ -27,15 +27,7 @@
     border-radius: 10px;
     box-shadow: 0 0 6px 4px #ccc;
 }
-@media print {
-    body * {
-        display: none;
-    }
 
-    input#name * {
-        background: rebeccapurple;
-    }
-}
 .form-submit {
     margin-top: 24px;
     /* font-size: 24px; */
@@ -66,3 +58,15 @@
     border: 1px solid #ff6464;
     padding: 0 0 0 2%;
 }
+
+/*  */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    .form-submit * {
+        visibility: visible;
+    }
+}
+/*  */
