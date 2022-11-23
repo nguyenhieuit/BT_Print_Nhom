@@ -17,217 +17,250 @@
         <title>Document</title>
     </head>
     <body>
+        <header class="col-md-12 row mx-0">
+            <div class="col-md-3 header-left">
+                <img src="https://portal.vnext.vn/assets/images/Logo.svg" />
+            </div>
+            <div class="col-md-9 header-right">
+                <div class="col-md-12 row mx-0 header-right-content">
+                    <div class="col-md-8 header-right-content-listitem">
+                        <ul class="m-0">
+                            <li>
+                                <a href="#">Trang chủ</a>
+                            </li>
+                            <li>
+                                <a href="#">Tài liệu</a>
+                            </li>
+                            <li>
+                                <a href="#">Hướng dẫn</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <!-- <p>user</p> -->
+                    </div>
+                </div>
+            </div>
+        </header>
         <div class="row col-md-12">
             <div class="col-md-3">
                 <div class="slide-bar">
-                  <ul class="ps-0">
-                    <li>
-                      <a href="file:///D:/UiEconomic/BT_Print_Nhom/profile.html" class="href-slide-bar">Details</a>
-                    </li>
-                    <li>
-                      <a href="file:///D:/UiEconomic/BT_Print_Nhom/index.html" class="href-slide-bar">Edit</a>
-                    </li>
-                </ul>
+                    <ul class="ps-0">
+                        <li>
+                            <a
+                                href="file:///D:/UiEconomic/BT_Print_Nhom/profile.html"
+                                class="href-slide-bar"
+                                >Hồ sơ</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="file:///D:/UiEconomic/BT_Print_Nhom/index.html"
+                                class="href-slide-bar"
+                                >Chỉnh sửa</a
+                            >
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="col-md-9">
                 <div class="row">
                     <form class="form-submit mt-3" id="form-cv">
                         <div class="row">
-                          <div class="col-md-4 avt left">
-                            <img
-                              class="img-avt"
-                              src="./photo-camera-interface-symbol-for-button.png"
-                            />
-                            <input type="file" />
-                          </div>
-                          <div class="col-md-8 right">
-                            <div class="infor col-md-12 row">
-                              <label for="">Họ và tên</label>
-                              <input
-                                id="fullName"
-                                value=""
-                                class="col-md-12 input-value rounded-pill"
-                                type="text"
-                                placeholder="Nguyễn Văn A"
-                              />
-                              <div class="col-md-12 infor-bottom row">
-                                <input
-                                  id="phoneNumber"
-                                  type="text"
-                                  value=""
-                                  class="col-md-4 me-2 mt-3 input-value"
-                                  placeholder="Số điện thoại"
-                                />
-                                <input
-                                  type="text"
-                                  id="email"
-                                  class="col-md-4 me-2 mt-3 input-value"
-                                  placeholder="Email"
-                                />
-                                <input
-                                  type="text"
-                                  value=""
-                                  id="address"
-                                  class="col-md-4 me-2 mt-3 input-value"
-                                  placeholder="Địa chỉ"
-                                />
-                              </div>
+                            <div class="col-md-4 avt left">
+                                <img
+                                    class="img-avt"
+                                    src="./photo-camera-interface-symbol-for-button.png" />
+                                <input type="file" />
                             </div>
-                            <div class="col-md-12 mt-3 right-bottom">
-                              <textarea
-                                id="detail"
-                                value=""
-                                class="col-md-12 input-value rounded-3"
-                                placeholder="Chi tiết"
-                                rows="4"
-                              ></textarea>
+                                <div class="col-md-8 right">
+                                    <div class="infor col-md-12 row">
+                                        <h1>Thông tin cá nhân</h1>
+                                        <div
+                                            style="
+                                                width: 100%;
+                                                background-color: #f49d1a;
+                                                height: 4px;
+                                                margin-bottom: 12px;
+                                                border-radius: 5px;
+                                            "></div>
+                                        <input
+                                        id="fullName"
+                                        value=""
+                                            class="col-md-12 input-value rounded-pill"
+                                            type="text"
+                                            placeholder="Nguyễn Văn A" />
+                                        <div class="col-md-12 infor-bottom row">
+                                            <input
+                                                id="phoneNumber"
+                                                value=""
+                                                type="text"
+                                                class="col-md-4 me-2 mt-3 input-value"
+                                                placeholder="Số điện thoại" />
+                                            <input
+                                                id="email"
+                                                value=""
+                                                type="text"
+                                                class="col-md-4 me-2 mt-3 input-value"
+                                                placeholder="Email" />
+                                            <input
+                                            id="address"
+                                            value=""
+                                                type="text"
+                                                class="col-md-4 me-2 mt-3 input-value"
+                                                placeholder="Địa chỉ" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 mt-3 right-bottom">
+                                        <textarea
+                                            id="detail"
+                                            value=""
+                                            class="col-md-12 input-value rounded-3"
+                                            placeholder="Chi tiết"
+                                            rows="4"></textarea>
+                                    </div>
+                                </div>
                             </div>
-                          </div>
                         </div>
                         <div class="row col-md-12 mt-5">
-                          <div class="col-md-8">
-                            <div class="col-md-12">
-                              <div>
-                                <h2>Kinh nghiệm làm việc</h2>
-                                <div
-                                  style="
-                                    width: 100%;
-                                    background-color: #f49d1a;
-                                    height: 4px;
-                                  "
-                                ></div>
-                                <div class="row col-md-12">
-                                  <div class="col-md-6 mt-3 m-sm-0 row">
-                                    <input
-                                      id="company"
-                                      value=""
-                                      placeholder="Công ty"
-                                      class="rounded-pill mt-3 col-md-10 input-value"
-                                      type="text"
-                                    />
-                                  </div>
-                                  <div class="col-md-6 mt-3 m-sm-0 row">
-                                    <input
-                                      id="position"
-                                      value=""
-                                      placeholder="vị trí"
-                                      class="rounded-pill mt-3 col-md-10 input-value"
-                                      type="text"
-                                    />
-                                  </div>
-                                  <textarea
-                                    id="descriptExperience"
-                                    value=""
-                                    class="col-md-11 mt-3 ms-2 rounded-pill input-value"
-                                    placeholder="Kinh nghiệm"
-                                  ></textarea>
+                            <div class="col-md-8">
+                                <div class="col-md-12">
+                                    <div>
+                                        <h2>Kinh nghiệm làm việc</h2>
+                                        <div
+                                            style="
+                                                width: 100%;
+                                                background-color: #f49d1a;
+                                                height: 4px;
+                                                border-radius: 5px;
+                                            "></div>
+                                        <div class="row col-md-12">
+                                            <div
+                                                class="col-md-6 mt-3 m-sm-0 row">
+                                                <input
+                                                    id="company"
+                                                    value=""
+                                                    placeholder="Công ty"
+                                                    class="rounded-pill mt-3 col-md-10 input-value"
+                                                    type="text" />
+                                            </div>
+                                            <div
+                                                class="col-md-6 mt-3 m-sm-0 row">
+                                                <input
+                                                    id="position"
+                                                    value=""
+                                                    placeholder="vị trí"
+                                                    class="rounded-pill mt-3 col-md-10 input-value"
+                                                    type="text" />
+                                            </div>
+                                            <textarea
+                                                id="descriptExperience"
+                                                value=""
+                                                class="col-md-11 mt-3 ms-2 rounded-pill input-value"
+                                                placeholder="Kinh nghiệm"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="mt-5">
+                                        <h2>Chứng chỉ</h2>
+                                        <div
+                                            style="
+                                                width: 100%;
+                                                background-color: #f49d1a;
+                                                height: 4px;
+                                                border-radius: 5px;
+                                            "></div>
+                                        <div class="col-md-12 m-sm-0">
+                                            <input
+                                                type="date"
+                                                id="dateCertificate"
+                                                value=""
+                                                class="col-md-2 me-2 rounded-pill mt-3 input-value"
+                                                placeholder="2022" />
+                                            <input
+                                                type="text"
+                                                id="certificateName"
+                                                value=""
+                                                class="col-md-9 me-2 rounded-pill mt-3 input-value"
+                                                placeholder="chứng chỉ" />
+                                        </div>
+                                    </div>
+                                    <div class="mt-5">
+                                        <h2>Kỹ năng</h2>
+                                        <div
+                                            style="
+                                                width: 100%;
+                                                background-color: #f49d1a;
+                                                height: 4px;
+                                                border-radius: 5px;
+                                            "></div>
+                                        <div class="mt-3">
+                                            <textarea
+                                                id="skill"
+                                                value=""
+                                                class="col-md-12 mt-2 rounded-pill input-value"
+                                                type="text"
+                                                placeholder="Mô tả kỹ năng"></textarea>
+                                        </div>
+                                    </div>
                                 </div>
-                              </div>
-                              <div class="mt-5">
-                                <h2>Chứng chỉ</h2>
-                                <div
-                                  style="
-                                    width: 100%;
-                                    background-color: #f49d1a;
-                                    height: 4px;
-                                  "
-                                ></div>
+                            </div>
+                            <div class="col-md-4">
                                 <div class="col-md-12 m-sm-0">
-                                  <input
-                                    type="date"
-                                    id="dateCertificate"
-                                    value=""
-                                    class="col-md-2 me-2 rounded-pill mt-3 input-value"
-                                    placeholder="2022"
-                                  />
-                                  <input
-                                    type="text"
-                                    id="certificateName"
-                                    value=""
-                                    class="col-md-9 me-2 rounded-pill mt-3 input-value"
-                                    placeholder="chứng chỉ"
-                                  />
+                                    <div>
+                                        <h2>Học vấn</h2>
+                                        <div
+                                            style="
+                                                width: 100%;
+                                                background-color: #f49d1a;
+                                                height: 4px;
+                                                border-radius: 5px;
+                                            "></div>
+                                        <input
+                                            id="university"
+                                            value=""
+                                            placeholder="Đại học"
+                                            class="rounded-pill mt-3 col-md-12 input-value"
+                                            type="text" />
+                                        <div class="row m-sm-0">
+                                            <input
+                                                id="dateStart"
+                                                value=""
+                                                class="col-md-4 mt-3 rounded-pill input-value"
+                                                type="date"
+                                                placeholder="01/2018" />
+                                            <p
+                                                class="col-md-2 mt-3 text-center">
+                                                _
+                                            </p>
+                                            <input
+                                                id="dateEnd"
+                                                value=""
+                                                class="col-md-4 mt-3 rounded-pill input-value"
+                                                type="date"
+                                                placeholder="01/2022" />
+                                            <input
+                                                id="specialization"
+                                                value=""
+                                                class="col-md-12 mt-3 rounded-pill input-value"
+                                                type="text"
+                                                placeholder="Chuyên ngành" />
+                                            <input
+                                                id="graduationClassified"
+                                                value=""
+                                                class="col-md-12 mt-3 rounded-pill input-value"
+                                                type="text"
+                                                placeholder="Tốt nghiệp loại: Giỏi / GPA: 9.0" />
+                                        </div>
+                                    </div>
                                 </div>
-                              </div>
-                              <div class="mt-5">
-                                <h2>Kỹ năng</h2>
-                                <div
-                                  style="
-                                    width: 100%;
-                                    background-color: #f49d1a;
-                                    height: 4px;
-                                  "
-                                ></div>
-                                <div class="mt-3">
-                                  <textarea
-                                    id="skill"
-                                    value=""
-                                    class="col-md-12 mt-2 rounded-pill input-value"
-                                    type="text"
-                                    placeholder="Mô tả kỹ năng"
-                                  ></textarea>
-                                </div>
-                              </div>
                             </div>
-                          </div>
-                          <div class="col-md-4">
-                            <div class="col-md-12 m-sm-0">
-                              <div>
-                                <h2>Học vấn</h2>
-                                <div
-                                  style="
-                                    width: 100%;
-                                    background-color: #f49d1a;
-                                    height: 4px;
-                                  "
-                                ></div>
-                                <input
-                                  id="university"
-                                  value=""
-                                  placeholder="Đại học"
-                                  class="rounded-pill mt-3 col-md-12 input-value"
-                                  type="text"
-                                />
-                                <div class="row m-sm-0">
-                                  <input
-                                    id="dateStart"
-                                    value=""
-                                    class="col-md-4 mt-3 rounded-pill input-value"
-                                    type="date"
-                                    placeholder="01/2018"
-                                  />
-                                  <p class="col-md-2 mt-3 text-center">_</p>
-                                  <input
-                                    id="dateEnd"
-                                    value=""
-                                    class="col-md-4 mt-3 rounded-pill input-value"
-                                    type="date"
-                                    placeholder="01/2022"
-                                  />
-                                  <input
-                                    id="specialization"
-                                    value=""
-                                    class="col-md-12 mt-3 rounded-pill input-value"
-                                    type="text"
-                                    placeholder="Chuyên ngành"
-                                  />
-                                  <input
-                                    id="graduationClassified"
-                                    value=""
-                                    class="col-md-12 mt-3 rounded-pill input-value"
-                                    type="text"
-                                    placeholder="Tốt nghiệp loại: Giỏi / GPA: 9.0"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
                         </div>
-                        <button class="mt-5 col-md-12 bg-primary" type="submit">
-                          Save
+                        <button
+                            class="mt-5 col-md-12 button-save"
+                            type="submit">
+                            Lưu
                         </button>
-                      </form>
+                    </form>
                 </div>
             </div>
         </div>
