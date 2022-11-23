@@ -158,7 +158,7 @@ const convertJsonDataObject = JSON.parse(localStorage.getItem("profileObject"));
 
 window.onload = function () {
   if (
-    typeof Storage !== "undefined" &&
+    localStorage.getItem("profileObject") !== null &&
     window.location.href.indexOf("profile.html") > -1
   ) {
     console.log("sadasda");
@@ -172,8 +172,8 @@ window.onload = function () {
       convertJsonDataObject.email;
     document.getElementById("detai-profile").innerHTML =
       convertJsonDataObject.detail;
-    document.getElementById("description-profile").innerHTML =
-      convertJsonDataObject.detail;
+    // document.getElementById("description-profile").innerHTML =
+    //   convertJsonDataObject.detail;
     document.getElementById("company-profile").innerHTML =
       convertJsonDataObject.experience.company;
     document.getElementById("position-profile").innerHTML =
@@ -199,7 +199,7 @@ window.onload = function () {
       convertJsonDataObject.study.graduationClassified;
   }
 
-  if (window.location.href.indexOf("index.html") > -1) {
+  if (localStorage.getItem("profileObject") !== null && window.location.href.indexOf("index.html") > -1) {
     fullName.value = convertJsonDataObject.fullName;
     phoneNumber.value = convertJsonDataObject.phoneNumber;
     email.value = convertJsonDataObject.email;
