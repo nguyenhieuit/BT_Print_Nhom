@@ -1,320 +1,365 @@
 * {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: Arial, Helvetica, sans-serif;
 }
+/*  */
+header {
+    box-shadow: 0 0 4px 1px #ff731d;
+}
+.header-left img {
+    /* padding: 4px 12px; */
+    margin: 8px 80px;
+}
+.header-right-content {
+    margin: auto 0;
+    display: flex;
+    justify-content: space-around;
+}
+.header-right-content-listitem ul {
+    text-align: center;
+}
+.header-right-content-listitem ul li {
+    display: inline-block;
+    font-size: 24px;
+    padding: 15px 24px;
+    /* margin: 12px 0 0 0; */
+}
+.header-right-content-listitem ul li:hover {
+    background-color: #fdfdbd;
+}
+.header-right-content-listitem ul li a {
+    text-decoration: none;
+    color: #ff731d;
+    font-weight: 600;
+}
+.header-right-content-listitem ul li:hover a {
+    color: #dc3535;
+}
+/*  */
 .slide-bar {
-  height: 100%;
-  /* box-shadow: 0 0 8px 4px #ccc; */
-  border-right: 1px solid #ccc;
+    height: 100%;
+    /* box-shadow: 0 0 8px 4px #ccc; */
+    border-right: 1px solid #ccc;
 }
 .slide-bar ul li {
-  /* background-color: #fdf0e0; */
-  font-size: 24px;
-  font-weight: 600;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  margin: 12px auto;
-  text-align: center;
-  padding: 28px 0;
+    /* background-color: #fdf0e0; */
+    font-size: 24px;
+    font-weight: 600;
+    margin: 12px auto;
+    text-align: center;
+    /* background-color: #ccc; */
+    padding: 12px 0;
+}
+.slide-bar ul li button {
+    border: none;
+    /* background-color: #ccc; */
 }
 .slide-bar ul li:hover {
-  background-color: #fdfdbd;
+    /* opacity: 0.5; */
+    background-color: #fdfdbd;
+    color: #dc3535;
 }
 .button-submit {
-  border: none;
-  background-color: #dc5f00;
-  border-radius: 10px;
-  box-shadow: 0 0 6px 4px #ccc;
+    border: none;
+    background-color: #dc5f00;
+    border-radius: 10px;
+    box-shadow: 0 0 6px 4px #ccc;
 }
 
 .form-submit {
-  margin-top: 24px;
-  /* font-size: 24px; */
+    margin-top: 24px;
+    /* font-size: 24px; */
 }
 .img-avt {
-  /* width: 100%; */
-  padding: 64px;
-  border: 1px solid #000;
-  border-radius: 50%;
-  background-color: #e5d9b6;
+    /* width: 100%; */
+    padding: 64px;
+    border: 1px solid #ff731d;
+    border-radius: 50%;
+    background-color: #ffe15d;
 }
 .avt input {
-  margin: 12px 12%;
+    margin: 12px 12%;
 }
 .infor-bottom input {
-  max-width: 32%;
-  border: 1.5px solid #dc3535;
-  border-radius: 50px;
-  background-color: #ffe15d;
+    max-width: 32%;
+    border: 1.5px solid #dc3535;
+    border-radius: 50px;
+    background-color: #ffe15d;
 }
 .right-bottom {
-  margin: -10px;
+    margin: -10px;
 }
 /* .form-content input {
     border: 1px solid #b6e2a1;
 } */
 .input-value {
-  border: 1px solid #ff6464;
-  padding: 0 0 0 2%;
+    border: 1px solid #ff731d;
+    padding: 0 0 0 2%;
 }
-.form-control small {
-  color: var(--error-color);
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  visibility: hidden;
+.button-save {
+    border: none;
+    background-color: #ff731d;
+    border-radius: 10px;
+    color: #fdfdbd;
+    box-shadow: 0 0 3px 1px #ff731d;
 }
-
-.form-control.error small {
-  visibility: visible;
+.form-control.error small{
+  color: red;
 }
 
 /*  */
 @media print {
-  body * {
-    visibility: hidden;
-    -webkit-print-color-adjust:exact !important;
-    print-color-adjust:exact !important;
-  }
-  
-  .slide-bar * {
-    display: none;
-  }
+    body * {
+        visibility: hidden;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
 
-  .form-submit * {
-    visibility: visible;
-  }
+    .slide-bar * {
+        display: none;
+    }
 
-  .resume * {
-    visibility: visible;
-  }
+    .form-submit * {
+        visibility: visible;
+    }
+
+    .resume * {
+        visibility: visible;
+    }
 }
 /*  */
 
 .button-print {
-  background: none;
-  border: none;
-  font-weight: 600;
+    background: none;
+    border: none;
+    font-weight: 600;
 }
 
 /* css profile */
 
 .resume {
-  width: 800px;
-  height: auto;
-  display: flex;
-  margin: 50px auto;
+    width: 800px;
+    height: auto;
+    display: flex;
+    margin: 50px auto;
 }
 
 .resume .resume_left {
-  width: 280px;
-  background: #0bb5f4;
+    width: 280px;
+    background: #bc5e24b0;
 }
 
 .resume .resume_left .resume_profile {
-  width: 100%;
-  height: 280px;
+    width: 100%;
+    height: 280px;
 }
 
 .resume .resume_left .resume_profile img {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 .resume .resume_left .resume_content {
-  padding: 0 25px;
+    padding: 0 25px;
 }
 
 .resume .title {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .resume .resume_left .bold {
-  color: #fff;
+    color: #fff;
 }
 
 .resume .resume_left .regular {
-  color: #b1eaff;
+    color: #b1eaff;
 }
 
 .resume .resume_item {
-  padding: 25px 0;
-  border-bottom: 2px solid #b1eaff;
+    padding: 25px 0;
+    border-bottom: 2px solid #b1eaff;
 }
 
 .resume .resume_left .resume_item:last-child,
 .resume .resume_right .resume_item:last-child {
-  border-bottom: 0px;
+    border-bottom: 0px;
 }
 
 .resume .resume_left ul li {
-  display: flex;
-  margin-bottom: 10px;
-  align-items: center;
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
 }
 
 .resume .resume_left ul li:last-child {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .resume .resume_left ul li .icon {
-  width: 35px;
-  height: 35px;
-  background: #fff;
-  color: #0bb5f4;
-  border-radius: 50%;
-  margin-right: 15px;
-  font-size: 16px;
-  position: relative;
+    width: 35px;
+    height: 35px;
+    background: #fff;
+    color: #0bb5f4;
+    border-radius: 50%;
+    margin-right: 15px;
+    font-size: 16px;
+    position: relative;
 }
 
 .resume .icon i,
 .resume .resume_right .resume_hobby ul li i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .resume .resume_left ul li .data {
-  color: #b1eaff;
+    color: #b1eaff;
 }
 
 .resume .resume_left .resume_skills ul li {
-  display: flex;
-  margin-bottom: 10px;
-  color: #b1eaff;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    margin-bottom: 10px;
+    color: #b1eaff;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .resume .resume_left .resume_skills ul li .skill_name {
-  width: 25%;
+    width: 25%;
 }
 
 .resume .resume_left .resume_skills ul li .skill_progress {
-  width: 60%;
-  margin: 0 5px;
-  height: 5px;
-  background: #009fd9;
-  position: relative;
+    width: 60%;
+    margin: 0 5px;
+    height: 5px;
+    background: #009fd9;
+    position: relative;
 }
 
 .resume .resume_left .resume_skills ul li .skill_per {
-  width: 15%;
+    width: 15%;
 }
 
 .resume .resume_left .resume_skills ul li .skill_progress span {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  background: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: #fff;
 }
 
 .resume .resume_left .resume_social .semi-bold {
-  color: #fff;
-  margin-bottom: 3px;
+    color: #fff;
+    margin-bottom: 3px;
 }
 
 .resume .resume_right {
-  width: 520px;
-  background: #fff;
-  padding: 25px;
+    width: 520px;
+    background: #fff;
+    padding: 25px;
 }
 
 .resume .resume_right .bold {
-  color: #0bb5f4;
+    color: #0bb5f4;
 }
 
 .resume .resume_right .resume_work ul,
 .resume .resume_right .resume_education ul {
-  padding-left: 40px;
-  overflow: hidden;
+    padding-left: 40px;
+    overflow: hidden;
 }
 
 .resume .resume_right ul li {
-  position: relative;
+    position: relative;
 }
 
 .resume .resume_right ul li .date {
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 15px;
 }
 
 .resume .resume_right ul li .info {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .resume .resume_right ul li:last-child .info {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 .resume .resume_right .resume_work ul li:before,
 .resume .resume_right .resume_education ul li:before {
-  content: "";
-  position: absolute;
-  top: 5px;
-  left: -25px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  border: 2px solid #0bb5f4;
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -25px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: 2px solid #0bb5f4;
 }
 
 .resume .resume_right .resume_work ul li:after,
 .resume .resume_right .resume_education ul li:after {
-  content: "";
-  position: absolute;
-  top: 14px;
-  left: -21px;
-  width: 2px;
-  height: 115px;
-  background: #0bb5f4;
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: -21px;
+    width: 2px;
+    height: 115px;
+    background: #0bb5f4;
 }
 
 .resume .resume_right .resume_hobby ul {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .resume .resume_right .resume_hobby ul li {
-  width: 80px;
-  height: 80px;
-  border: 2px solid #0bb5f4;
-  border-radius: 50%;
-  position: relative;
-  color: #0bb5f4;
+    width: 80px;
+    height: 80px;
+    border: 2px solid #0bb5f4;
+    border-radius: 50%;
+    position: relative;
+    color: #0bb5f4;
 }
 
 .resume .resume_right .resume_hobby ul li i {
-  font-size: 30px;
+    font-size: 30px;
 }
 
 .resume .resume_right .resume_hobby ul li:before {
-  content: "";
-  position: absolute;
-  top: 40px;
-  right: -52px;
-  width: 50px;
-  height: 2px;
-  background: #0bb5f4;
+    content: "";
+    position: absolute;
+    top: 40px;
+    right: -52px;
+    width: 50px;
+    height: 2px;
+    background: #0bb5f4;
 }
 
 .info p {
-  margin-right: 5px;
+    margin-right: 5px;
 }
 
 .resume .resume_right .resume_hobby ul li:last-child:before {
-  display: none;
+    display: none;
 }
 
 .skill-profile {
-  margin-left: 10px;
+    margin-left: 10px;
 }
 .href-slide-bar {
-  text-decoration: none;
-  color: #000000;
+    text-decoration: none;
+    background: none;
+    font-weight: 600;
+    color: #ff731d;
+}
+
+.href-slide-bar:hover {
+    color: #ff731d;
 }

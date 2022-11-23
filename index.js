@@ -1,161 +1,137 @@
 const form = document.getElementById("form-cv");
 
-function showError(input, message) {
-  //gets the parent div
-  const formControl = input.parentElement;
-  //applies error class and reapplies form-control class
-  console.log(formControl);
-  formControl.classList.add('form-control error');
-  //finds the small tag within this div
-  const small = formControl.querySelector('small');
-  //inserts the message parameter into the small tag
+const showError = (input, message) => {
+  let parent = input.parentElement;
+  let small = parent.querySelector('small');
+  parent.classList.add('error');
   small.innerText = message;
+  
+};
+const showSuccess = (input) => {
+  let parent = input.parentElement;
+  let small = parent.querySelector('small');
+  parent.classList.remove('error');
+  small.innerText = '';
+  
+};
+
+function checkEmtyError(listInput) {
+  let isEmtyError = false;
+  listInput.forEach(input =>{
+    input.value = input.value.trim()
+
+    if (!input.value) {
+      isEmtyError = true;
+      showError(input,'Vui long nhap')
+    } else{
+      showSuccess(input)
+    }
+  });
+  return isEmtyError
+}
+
+function checkEmail(input) {
+  const regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  input.value = input.value.trim()
+
+  let isEmailError = !regexEmail.test(input.value);
+  if (regexEmail.test(input.value)) {
+    showSuccess(input)
+  }else{
+    showError(input,'Email Invalid')
+  }
+  return isEmailError
 }
 
 
-//Show success outline
-function showSuccess(input) {
-  //gets the parent div
-  const formControl = input.parentElement;
-  //applies success class and reapplies form-control class
-  formControl.className = 'form-control success';
-}
+
+const fullName = document.getElementById("fullName");
+const phoneNumber = document.getElementById("phoneNumber");
+const email = document.getElementById("email");
+const address = document.getElementById("address");
+const detail = document.getElementById("detail");
+const company = document.getElementById("company");
+const position = document.getElementById("position");
+const descriptExperience = document.getElementById("descriptExperience");
+const university = document.getElementById("university");
+const dateEnd = document.getElementById("dateEnd");
+const specialization = document.getElementById("specialization");
+const graduationClassified = document.getElementById("graduationClassified");
+const dateCertificate = document.getElementById("dateCertificate");
+const certificateName = document.getElementById("certificateName");
+const skill = document.getElementById("skill");
+
 
 function handleSubmit(e) {
   e.preventDefault();
 
-  const fullName = document.getElementById("fullName").value;
-  const phoneNumber = document.getElementById("phoneNumber").value;
-  const email = document.getElementById("email").value;
-  const address = document.getElementById("address").value;
-  const detail = document.getElementById("detail").value;
-  const company = document.getElementById("company").value;
-  const position = document.getElementById("company").value;
-  const descriptExperience =
-    document.getElementById("descriptExperience").value;
-  const university = document.getElementById("university").value;
-  const dateStart = document.getElementById("dateStart").value;
-  const dateEnd = document.getElementById("dateEnd").value;
-  const specialization = document.getElementById("specialization").value;
-  const graduationClassified = document.getElementById(
-    "graduationClassified"
-  ).value;
-  const dateCertificate = document.getElementById("dateCertificate").value;
-  const certificateName = document.getElementById("certificateName").value;
-  const skill = document.getElementById("skill").value;
-  
-  let flag = true;
-  
-
-  if (fullName === '') {
-    flag = false;
-    showError(, 'Not a real email bub');
-
-  }
-  if (phoneNumber === '') {
-    flag = false;
-    errorMess.innerHTML = "Vui lòng nhập số điện thoại";
-  }
-  if (email === '') {
-    flag = false;
-    
-  }
-  if (address === '') {
-    flag = false;
-    
-  }
-  if (company === '') {
-    flag = false;
-    
-  }
-  if (position === '') {
-    flag = false;
-    
-  }
-  
-  if (university === '') {
-    flag = false;
-    
-  }
-  if (dateStart === '') {
-    flag = false;
-    
-  }
-  if (dateEnd === '') {
-    flag = false;
-    
-  }else{
-    if (dateEnd > dateStart) {
-      
-    }
-  }
-
-  if (specialization === '') {
-    flag = false;
-    
-  }
-  if (graduationClassified === '') {
-    flag = false;
-    
-  }
-  if (dateCertificate === '') {
-    flag = false;
-    
-  }
-  if (certificateName === '') {
-    flag = false;
-    
-  }
-  
-
-
-  const formObject = {
+  let isEmtyError= checkEmtyError ([
     fullName,
     phoneNumber,
     email,
     address,
-    detail,
-    skill,
+    company,
+    position,
+    university,
+    dateEnd,
+    specialization,
+    graduationClassified,
+    dateCertificate,
+    certificateName
+  ]);
+  
+  let isEmailError = checkEmail(email)
+  
+
+  const formObject = {
+    fullName: fullName.value,
+    phoneNumber: phoneNumber.value,
+    email: email.value,
+    address: address.value,
+    detail: detail.value,
+    skill: skill.value,
     experience: {
-      company,
-      position,
-      descriptExperience,
+      company: company.value,
+      position: position.value,
+      descriptExperience: descriptExperience.value,
     },
     study: {
-      university,
-      dateStart,
-      dateEnd,
-      specialization,
-      graduationClassified,
+      university: university.value,
+      dateEnd: dateEnd.value,
+      specialization: specialization.value,
+      graduationClassified: graduationClassified.value,
     },
     certificate: {
-      dateCertificate,
-      certificateName,
+      dateCertificate: dateCertificate.value,
+      certificateName: certificateName.value,
     },
   };
-
-  if (flag) {
-    localStorage.setItem("profileObject", JSON.stringify(formObject));
-  }
-
+  
+  localStorage.setItem("profileObject", JSON.stringify(formObject));
+  
+  // window.location.href = "profile.html"
 }
 
 form && form.addEventListener("submit", handleSubmit);
 
 const print = document.querySelector(".button-print");
 
-if (window.location.href.indexOf('profile.html') > -1) {
+if (window.location.href.indexOf("profile.html") > -1) {
   print.onclick = () => {
     window.print();
   };
 }
-console.log(window.location.href.indexOf('index.html') > -1);
+console.log(window.location.href.indexOf("index.html") > -1);
 const convertJsonDataObject = JSON.parse(localStorage.getItem("profileObject"));
 
 window.onload = function () {
-  if (typeof Storage !== "undefined" && window.location.href.indexOf('profile.html') > -1) {
-    console.log('sadasda');
-    document.getElementById("full-name-profile").innerHTML = convertJsonDataObject.fullName;
+  if (
+    typeof Storage !== "undefined" &&
+    window.location.href.indexOf("profile.html") > -1
+  ) {
+    console.log("sadasda");
+    document.getElementById("full-name-profile").innerHTML =
+      convertJsonDataObject.fullName;
     document.getElementById("address-profile").innerHTML =
       convertJsonDataObject.address;
     document.getElementById("phone-profile").innerHTML =
@@ -177,7 +153,7 @@ window.onload = function () {
 
     document.getElementById(
       "study-date-profile"
-    ).innerHTML = `${convertJsonDataObject.study.dateStart} - ${convertJsonDataObject.study.dateEnd}`;
+    ).innerHTML = `${convertJsonDataObject.study.dateEnd}`;
     document.getElementById("graduation-classified").innerHTML =
       convertJsonDataObject.certificate.certificateName;
     document.getElementById("skill-profile").innerHTML =
@@ -189,5 +165,26 @@ window.onload = function () {
       convertJsonDataObject.study.specialization;
     document.getElementById("graduation-classified-classified").innerHTML =
       convertJsonDataObject.study.graduationClassified;
+  }
+
+  if (window.location.href.indexOf("index.html") > -1) {
+    fullName.value = convertJsonDataObject.fullName;
+    phoneNumber.value = convertJsonDataObject.phoneNumber;
+    email.value = convertJsonDataObject.email;
+    address.value = convertJsonDataObject.address;
+    detail.value = convertJsonDataObject.detail;
+    skill.value = convertJsonDataObject.skill;
+    company.value = convertJsonDataObject.experience.company;
+    position.value = convertJsonDataObject.experience.position;
+    descriptExperience.value =
+      convertJsonDataObject.experience.descriptExperience;
+
+    university.value = convertJsonDataObject.study.university;
+    dateEnd.value = convertJsonDataObject.study.dateEnd;
+    specialization.value = convertJsonDataObject.study.specialization;
+    graduationClassified.value =
+      convertJsonDataObject.study.graduationClassified;
+    dateCertificate.value = convertJsonDataObject.certificate.dateCertificate;
+    certificateName.value = convertJsonDataObject.certificate.certificateName;
   }
 };
