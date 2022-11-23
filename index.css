@@ -84,6 +84,7 @@
 .button-print {
   background: none;
   border: none;
+  font-weight: 600;
 }
 
 /* css profile */
@@ -301,4 +302,9 @@
 
 .skill-profile {
   margin-left: 10px;
+}
+
+.href-slide-bar {
+  text-decoration: none;
+  color: #000000;
 }
