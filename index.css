@@ -75,9 +75,9 @@ header {
 .img-avt {
     /* width: 100%; */
     padding: 64px;
-    border: 1px solid #000;
+    border: 1px solid #ff731d;
     border-radius: 50%;
-    background-color: #e5d9b6;
+    background-color: #ffe15d;
 }
 .avt input {
     margin: 12px 12%;
@@ -95,7 +95,7 @@ header {
     border: 1px solid #b6e2a1;
 } */
 .input-value {
-    border: 1px solid #ff6464;
+    border: 1px solid #ff731d;
     padding: 0 0 0 2%;
 }
 .button-save {
@@ -351,5 +351,5 @@ header {
 }
 .href-slide-bar {
     text-decoration: none;
-    color: #000000;
+    color: #ff731d;
 }
