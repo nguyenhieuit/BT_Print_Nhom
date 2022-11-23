@@ -1,5 +1,26 @@
 const form = document.getElementById("form-cv");
 
+function showError(input, message) {
+  //gets the parent div
+  const formControl = input.parentElement;
+  //applies error class and reapplies form-control class
+  console.log(formControl);
+  formControl.classList.add('form-control error');
+  //finds the small tag within this div
+  const small = formControl.querySelector('small');
+  //inserts the message parameter into the small tag
+  small.innerText = message;
+}
+
+
+//Show success outline
+function showSuccess(input) {
+  //gets the parent div
+  const formControl = input.parentElement;
+  //applies success class and reapplies form-control class
+  formControl.className = 'form-control success';
+}
+
 function handleSubmit(e) {
   e.preventDefault();
 
@@ -22,6 +43,72 @@ function handleSubmit(e) {
   const dateCertificate = document.getElementById("dateCertificate").value;
   const certificateName = document.getElementById("certificateName").value;
   const skill = document.getElementById("skill").value;
+  
+  let flag = true;
+  
+
+  if (fullName === '') {
+    flag = false;
+    showError(, 'Not a real email bub');
+
+  }
+  if (phoneNumber === '') {
+    flag = false;
+    errorMess.innerHTML = "Vui lòng nhập số điện thoại";
+  }
+  if (email === '') {
+    flag = false;
+    
+  }
+  if (address === '') {
+    flag = false;
+    
+  }
+  if (company === '') {
+    flag = false;
+    
+  }
+  if (position === '') {
+    flag = false;
+    
+  }
+  
+  if (university === '') {
+    flag = false;
+    
+  }
+  if (dateStart === '') {
+    flag = false;
+    
+  }
+  if (dateEnd === '') {
+    flag = false;
+    
+  }else{
+    if (dateEnd > dateStart) {
+      
+    }
+  }
+
+  if (specialization === '') {
+    flag = false;
+    
+  }
+  if (graduationClassified === '') {
+    flag = false;
+    
+  }
+  if (dateCertificate === '') {
+    flag = false;
+    
+  }
+  if (certificateName === '') {
+    flag = false;
+    
+  }
+  
+
+
   const formObject = {
     fullName,
     phoneNumber,
@@ -47,7 +134,10 @@ function handleSubmit(e) {
     },
   };
 
-  localStorage.setItem("profileObject", JSON.stringify(formObject));
+  if (flag) {
+    localStorage.setItem("profileObject", JSON.stringify(formObject));
+  }
+
 }
 
 form && form.addEventListener("submit", handleSubmit);
