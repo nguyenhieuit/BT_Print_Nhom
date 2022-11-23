@@ -1,71 +1,71 @@
 const form = document.getElementById("form-cv");
-
+const fullName = document.getElementById("fullName");
+const phoneNumber = document.getElementById("phoneNumber");
+const email = document.getElementById("email");
+const address = document.getElementById("address");
+const detail = document.getElementById("detail");
+const company = document.getElementById("company");
+const position = document.getElementById("position");
+const descriptExperience = document.getElementById("descriptExperience");
+const university = document.getElementById("university");
+const dateStart = document.getElementById("dateStart");
+const dateEnd = document.getElementById("dateEnd");
+const specialization = document.getElementById("specialization");
+const graduationClassified = document.getElementById("graduationClassified");
+const dateCertificate = document.getElementById("dateCertificate");
+const certificateName = document.getElementById("certificateName");
+const skill = document.getElementById("skill");
 function handleSubmit(e) {
   e.preventDefault();
-
-  const fullName = document.getElementById("fullName").value;
-  const phoneNumber = document.getElementById("phoneNumber").value;
-  const email = document.getElementById("email").value;
-  const address = document.getElementById("address").value;
-  const detail = document.getElementById("detail").value;
-  const company = document.getElementById("company").value;
-  const position = document.getElementById("company").value;
-  const descriptExperience =
-    document.getElementById("descriptExperience").value;
-  const university = document.getElementById("university").value;
-  const dateStart = document.getElementById("dateStart").value;
-  const dateEnd = document.getElementById("dateEnd").value;
-  const specialization = document.getElementById("specialization").value;
-  const graduationClassified = document.getElementById(
-    "graduationClassified"
-  ).value;
-  const dateCertificate = document.getElementById("dateCertificate").value;
-  const certificateName = document.getElementById("certificateName").value;
-  const skill = document.getElementById("skill").value;
   const formObject = {
-    fullName,
-    phoneNumber,
-    email,
-    address,
-    detail,
-    skill,
+    fullName: fullName.value,
+    phoneNumber: phoneNumber.value,
+    email: email.value,
+    address: address.value,
+    detail: detail.value,
+    skill: skill.value,
     experience: {
-      company,
-      position,
-      descriptExperience,
+      company: company.value,
+      position: position.value,
+      descriptExperience: descriptExperience.value,
     },
     study: {
-      university,
-      dateStart,
-      dateEnd,
-      specialization,
-      graduationClassified,
+      university: university.value,
+      dateStart: dateStart.value,
+      dateEnd: dateEnd.value,
+      specialization: specialization.value,
+      graduationClassified: graduationClassified.value,
     },
     certificate: {
-      dateCertificate,
-      certificateName,
+      dateCertificate: dateCertificate.value,
+      certificateName: certificateName.value,
     },
   };
-
   localStorage.setItem("profileObject", JSON.stringify(formObject));
+
+  window.location.href = "profile.html"
 }
 
 form && form.addEventListener("submit", handleSubmit);
 
 const print = document.querySelector(".button-print");
 
-if (window.location.href.indexOf('profile.html') > -1) {
+if (window.location.href.indexOf("profile.html") > -1) {
   print.onclick = () => {
     window.print();
   };
 }
-console.log(window.location.href.indexOf('index.html') > -1);
+console.log(window.location.href.indexOf("index.html") > -1);
 const convertJsonDataObject = JSON.parse(localStorage.getItem("profileObject"));
 
 window.onload = function () {
-  if (typeof Storage !== "undefined" && window.location.href.indexOf('profile.html') > -1) {
-    console.log('sadasda');
-    document.getElementById("full-name-profile").innerHTML = convertJsonDataObject.fullName;
+  if (
+    typeof Storage !== "undefined" &&
+    window.location.href.indexOf("profile.html") > -1
+  ) {
+    console.log("sadasda");
+    document.getElementById("full-name-profile").innerHTML =
+      convertJsonDataObject.fullName;
     document.getElementById("address-profile").innerHTML =
       convertJsonDataObject.address;
     document.getElementById("phone-profile").innerHTML =
@@ -99,5 +99,27 @@ window.onload = function () {
       convertJsonDataObject.study.specialization;
     document.getElementById("graduation-classified-classified").innerHTML =
       convertJsonDataObject.study.graduationClassified;
+  }
+
+  if (window.location.href.indexOf("index.html") > -1) {
+    fullName.value = convertJsonDataObject.fullName;
+    phoneNumber.value = convertJsonDataObject.phoneNumber;
+    email.value = convertJsonDataObject.email;
+    address.value = convertJsonDataObject.address;
+    detail.value = convertJsonDataObject.detail;
+    skill.value = convertJsonDataObject.skill;
+    company.value = convertJsonDataObject.experience.company;
+    position.value = convertJsonDataObject.experience.position;
+    descriptExperience.value =
+      convertJsonDataObject.experience.descriptExperience;
+
+    university.value = convertJsonDataObject.study.university;
+    dateStart.value = convertJsonDataObject.study.dateStart;
+    dateEnd.value = convertJsonDataObject.study.dateEnd;
+    specialization.value = convertJsonDataObject.study.specialization;
+    graduationClassified.value =
+      convertJsonDataObject.study.graduationClassified;
+    dateCertificate.value = convertJsonDataObject.certificate.dateCertificate;
+    certificateName.value = convertJsonDataObject.certificate.certificateName;
   }
 };

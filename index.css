@@ -144,7 +144,7 @@ header {
 
 .resume .resume_left {
     width: 280px;
-    background: #0bb5f4;
+    background: #bc5e24b0;
 }
 
 .resume .resume_left .resume_profile {
@@ -351,5 +351,11 @@ header {
 }
 .href-slide-bar {
     text-decoration: none;
+    background: none;
+    font-weight: 600;
+    color: #ff731d;
+}
+
+.href-slide-bar:hover {
     color: #ff731d;
 }
