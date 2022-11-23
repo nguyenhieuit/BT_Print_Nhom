@@ -15,16 +15,45 @@ const showSuccess = (input) => {
   
 };
 
+// function checkEmtyError(listInput) {
+//   let isEmtyError = false;
+//   listInput.forEach(input =>{
+//     input.value = input.value.trim()
+
+//     if (!input.value) {
+//       isEmtyError = true;
+//       showError(input,'Vui long nhap')
+//     } else{
+//       showSuccess(input)
+//     }
+//   });
+//   return isEmtyError
+// }
+
+// function checkEmail(input) {
+//   const regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+//   input.value = input.value.trim()
+
+//   let isEmailError = !regexEmail.test(input.value);
+//   if (regexEmail.test(input.value)) {
+//     showSuccess(input)
+//   }else{
+//     showError(input,'Email Invalid')
+//   }
+//   return isEmailError
+// }
+
 function checkEmtyError(listInput) {
   let isEmtyError = false;
   listInput.forEach(input =>{
     input.value = input.value.trim()
 
     if (!input.value) {
-      isEmtyError = true;
+      isEmtyError = false;
       showError(input,'Vui long nhap')
     } else{
-      showSuccess(input)
+      showSuccess(input);
+      isEmtyError = true;
     }
   });
   return isEmtyError
@@ -34,16 +63,15 @@ function checkEmail(input) {
   const regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   input.value = input.value.trim()
 
-  let isEmailError = !regexEmail.test(input.value);
+  // let isEmailError = !regexEmail.test(input.value);
   if (regexEmail.test(input.value)) {
     showSuccess(input)
+    return true
   }else{
     showError(input,'Email Invalid')
+    return false
   }
-  return isEmailError
 }
-
-
 
 const fullName = document.getElementById("fullName");
 const phoneNumber = document.getElementById("phoneNumber");
@@ -107,9 +135,13 @@ function handleSubmit(e) {
     },
   };
   
-  localStorage.setItem("profileObject", JSON.stringify(formObject));
-  
-  // window.location.href = "profile.html"
+  if(!isEmtyError && !isEmailError) {
+    return false;
+  }
+  else {
+    localStorage.setItem("profileObject", JSON.stringify(formObject));
+    window.location.href = "profile.html"
+  }
 }
 
 form && form.addEventListener("submit", handleSubmit);
