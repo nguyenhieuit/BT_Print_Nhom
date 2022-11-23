@@ -105,6 +105,10 @@ header {
     color: #fdfdbd;
     box-shadow: 0 0 3px 1px #ff731d;
 }
+.form-control.error small{
+  color: red;
+}
+
 /*  */
 @media print {
     body * {

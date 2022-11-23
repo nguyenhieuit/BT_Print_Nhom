@@ -1,4 +1,78 @@
 const form = document.getElementById("form-cv");
+
+const showError = (input, message) => {
+  let parent = input.parentElement;
+  let small = parent.querySelector('small');
+  parent.classList.add('error');
+  small.innerText = message;
+  
+};
+const showSuccess = (input) => {
+  let parent = input.parentElement;
+  let small = parent.querySelector('small');
+  parent.classList.remove('error');
+  small.innerText = '';
+  
+};
+
+// function checkEmtyError(listInput) {
+//   let isEmtyError = false;
+//   listInput.forEach(input =>{
+//     input.value = input.value.trim()
+
+//     if (!input.value) {
+//       isEmtyError = true;
+//       showError(input,'Vui long nhap')
+//     } else{
+//       showSuccess(input)
+//     }
+//   });
+//   return isEmtyError
+// }
+
+// function checkEmail(input) {
+//   const regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+//   input.value = input.value.trim()
+
+//   let isEmailError = !regexEmail.test(input.value);
+//   if (regexEmail.test(input.value)) {
+//     showSuccess(input)
+//   }else{
+//     showError(input,'Email Invalid')
+//   }
+//   return isEmailError
+// }
+
+function checkEmtyError(listInput) {
+  let isEmtyError = false;
+  listInput.forEach(input =>{
+    input.value = input.value.trim()
+
+    if (!input.value) {
+      isEmtyError = false;
+      showError(input,'Vui long nhap')
+    } else{
+      showSuccess(input);
+      isEmtyError = true;
+    }
+  });
+  return isEmtyError
+}
+
+function checkEmail(input) {
+  const regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+  input.value = input.value.trim()
+
+  // let isEmailError = !regexEmail.test(input.value);
+  if (regexEmail.test(input.value)) {
+    showSuccess(input)
+    return true
+  }else{
+    showError(input,'Email Invalid')
+    return false
+  }
+}
+
 const fullName = document.getElementById("fullName");
 const phoneNumber = document.getElementById("phoneNumber");
 const email = document.getElementById("email");
@@ -8,15 +82,35 @@ const company = document.getElementById("company");
 const position = document.getElementById("position");
 const descriptExperience = document.getElementById("descriptExperience");
 const university = document.getElementById("university");
-const dateStart = document.getElementById("dateStart");
 const dateEnd = document.getElementById("dateEnd");
 const specialization = document.getElementById("specialization");
 const graduationClassified = document.getElementById("graduationClassified");
 const dateCertificate = document.getElementById("dateCertificate");
 const certificateName = document.getElementById("certificateName");
 const skill = document.getElementById("skill");
+
+
 function handleSubmit(e) {
   e.preventDefault();
+
+  let isEmtyError= checkEmtyError ([
+    fullName,
+    phoneNumber,
+    email,
+    address,
+    company,
+    position,
+    university,
+    dateEnd,
+    specialization,
+    graduationClassified,
+    dateCertificate,
+    certificateName
+  ]);
+  
+  let isEmailError = checkEmail(email)
+  
+
   const formObject = {
     fullName: fullName.value,
     phoneNumber: phoneNumber.value,
@@ -31,7 +125,6 @@ function handleSubmit(e) {
     },
     study: {
       university: university.value,
-      dateStart: dateStart.value,
       dateEnd: dateEnd.value,
       specialization: specialization.value,
       graduationClassified: graduationClassified.value,
@@ -41,9 +134,14 @@ function handleSubmit(e) {
       certificateName: certificateName.value,
     },
   };
-  localStorage.setItem("profileObject", JSON.stringify(formObject));
-
-  window.location.href = "profile.html"
+  
+  if(!isEmtyError && !isEmailError) {
+    return false;
+  }
+  else {
+    localStorage.setItem("profileObject", JSON.stringify(formObject));
+    window.location.href = "profile.html"
+  }
 }
 
 form && form.addEventListener("submit", handleSubmit);
@@ -87,7 +185,7 @@ window.onload = function () {
 
     document.getElementById(
       "study-date-profile"
-    ).innerHTML = `${convertJsonDataObject.study.dateStart} - ${convertJsonDataObject.study.dateEnd}`;
+    ).innerHTML = `${convertJsonDataObject.study.dateEnd}`;
     document.getElementById("graduation-classified").innerHTML =
       convertJsonDataObject.certificate.certificateName;
     document.getElementById("skill-profile").innerHTML =
@@ -114,7 +212,6 @@ window.onload = function () {
       convertJsonDataObject.experience.descriptExperience;
 
     university.value = convertJsonDataObject.study.university;
-    dateStart.value = convertJsonDataObject.study.dateStart;
     dateEnd.value = convertJsonDataObject.study.dateEnd;
     specialization.value = convertJsonDataObject.study.specialization;
     graduationClassified.value =
